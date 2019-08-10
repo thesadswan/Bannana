@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Isotope</title>
+    <!-- jquery cdn-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- isotope cdn-->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  </head>
+
+  <body>
+    <div class="button-group filter-button-group">
+      <button data-filter="*">show all</button>
+      <button data-filter=".first">city</button>
+      <button data-filter=".second">country</button>
+      <button data-filter=".second">water</button>
+    </div>
+    <!--- grid -->
+    <div class="grid">
+      <div class="element-item first">
+        <img src="./image/9.jpg" width="100" />
+      </div>
+      <div class="element-item second">
+        <img src="./image/5.jpg" width="100" />
+      </div>
+      <div class="element-item first">
+        <img src="./image/9.jpg" width="100" />
+      </div>
+      <div class="element-item second">
+        <img src="./image/5.jpg" width="100" />
+      </div>
+      <div class="element-item first">
+        <img src="./image/9.jpg" width="100" />
+      </div>
+      <div class="element-item second">
+        <img src="./image/5.jpg" width="100" />
+      </div>
+    </div>
+    <script>
+      let $grid = $(".grid").isotope({
+        // options
+      });
+      // filter items on button click
+      $(".filter-button-group").on("click", "button", function() {
+        let filterValue = $(this).attr("data-filter");
+        $grid.isotope({ filter: filterValue });
+      });
+    </script>
+  </body>
+</html>
